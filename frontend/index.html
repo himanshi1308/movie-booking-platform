@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CineBook — Movie Ticket Booking</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="logo">🎬 CineBook</div>
+    <div class="user-badge" id="userBadge"></div>
+  </header>
+
+  <!-- SCREEN 1: Show list -->
+  <main id="showListScreen" class="screen">
+    <h1>Now Showing</h1>
+    <div id="showList" class="show-list"></div>
+  </main>
+
+  <!-- SCREEN 2: Seat selection -->
+  <main id="seatScreen" class="screen hidden">
+    <button class="back-btn" id="backToShows">&larr; Back to shows</button>
+    <h1 id="seatScreenTitle"></h1>
+    <p class="subtitle" id="seatScreenSubtitle"></p>
+
+    <div class="screen-indicator">SCREEN THIS WAY</div>
+    <div id="seatMap" class="seat-map"></div>
+
+    <div class="legend">
+      <span><i class="dot available"></i> Available</span>
+      <span><i class="dot selected"></i> Selected (held for you)</span>
+      <span><i class="dot locked"></i> Held by someone else</span>
+      <span><i class="dot booked"></i> Booked</span>
+    </div>
+
+    <div class="checkout-bar" id="checkoutBar">
+      <div id="checkoutInfo">Select a seat to continue</div>
+      <div id="holdTimer" class="hold-timer hidden"></div>
+      <button id="confirmBtn" class="confirm-btn" disabled>Confirm Booking</button>
+    </div>
+  </main>
+
+  <!-- SCREEN 3: Confirmation -->
+  <main id="confirmScreen" class="screen hidden">
+    <div class="confirmation-card">
+      <div class="check-icon">✅</div>
+      <h1>Booking Confirmed!</h1>
+      <p id="confirmDetails"></p>
+      <button id="bookAnotherBtn" class="confirm-btn">Book Another Show</button>
+    </div>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

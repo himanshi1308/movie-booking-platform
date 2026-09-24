@@ -1,0 +1,125 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0f1117;
+  color: #e8e8ec;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #171a23;
+  border-bottom: 1px solid #262a36;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo { font-size: 20px; font-weight: 700; color: #ff5c5c; }
+.user-badge { font-size: 13px; color: #9298a8; background: #262a36; padding: 6px 12px; border-radius: 20px; }
+
+.screen { max-width: 800px; margin: 0 auto; padding: 24px; }
+.hidden { display: none !important; }
+
+h1 { font-size: 24px; margin-bottom: 6px; }
+.subtitle { color: #9298a8; margin-bottom: 20px; font-size: 14px; }
+
+/* Show list */
+.show-list { display: grid; gap: 14px; margin-top: 20px; }
+.show-card {
+  background: #171a23;
+  border: 1px solid #262a36;
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.show-card:hover { border-color: #ff5c5c; transform: translateY(-1px); }
+.show-card h3 { font-size: 17px; margin-bottom: 4px; }
+.show-card p { color: #9298a8; font-size: 13px; }
+.show-card .go { color: #ff5c5c; font-size: 20px; }
+
+/* Seat map */
+.back-btn {
+  background: none; border: none; color: #9298a8; font-size: 14px;
+  cursor: pointer; margin-bottom: 12px; padding: 4px 0;
+}
+.back-btn:hover { color: #e8e8ec; }
+
+.screen-indicator {
+  text-align: center;
+  color: #565c6b;
+  font-size: 11px;
+  letter-spacing: 3px;
+  border-bottom: 2px solid #262a36;
+  padding-bottom: 20px;
+  margin: 24px auto 24px;
+  width: 80%;
+}
+
+.seat-map { display: flex; flex-direction: column; gap: 8px; align-items: center; margin-bottom: 20px; }
+.seat-row { display: flex; gap: 8px; align-items: center; }
+.row-label { width: 20px; color: #565c6b; font-size: 12px; text-align: center; }
+
+.seat {
+  width: 34px; height: 34px;
+  border-radius: 8px 8px 4px 4px;
+  border: 1px solid #3a3f4d;
+  background: #1e222c;
+  color: #9298a8;
+  font-size: 10px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.seat:hover:not(.booked):not(.locked) { border-color: #ff5c5c; transform: scale(1.08); }
+.seat.available { background: #1e222c; }
+.seat.selected { background: #ff5c5c; border-color: #ff5c5c; color: white; }
+.seat.locked { background: #2b2416; border-color: #6b5a1f; color: #b89a3d; cursor: not-allowed; }
+.seat.booked { background: #262a36; border-color: #262a36; color: #4a4f5c; cursor: not-allowed; text-decoration: line-through; }
+
+.legend { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; font-size: 12px; color: #9298a8; margin-bottom: 28px; }
+.legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: middle; }
+.dot.available { background: #1e222c; border: 1px solid #3a3f4d; }
+.dot.selected { background: #ff5c5c; }
+.dot.locked { background: #2b2416; border: 1px solid #6b5a1f; }
+.dot.booked { background: #262a36; }
+
+.checkout-bar {
+  position: sticky; bottom: 0;
+  background: #171a23;
+  border: 1px solid #262a36;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  flex-wrap: wrap;
+}
+#checkoutInfo { font-size: 14px; color: #e8e8ec; }
+.hold-timer { font-size: 13px; color: #ff9c5c; font-variant-numeric: tabular-nums; }
+
+.confirm-btn {
+  background: #ff5c5c; color: white; border: none;
+  padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: background 0.15s;
+}
+.confirm-btn:hover:not(:disabled) { background: #ff4040; }
+.confirm-btn:disabled { background: #3a3f4d; color: #6b6f7a; cursor: not-allowed; }
+
+/* Confirmation */
+.confirmation-card { text-align: center; padding: 60px 20px; }
+.check-icon { font-size: 56px; margin-bottom: 12px; }
+.confirmation-card p { color: #9298a8; margin: 12px 0 28px; line-height: 1.6; }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  background: #262a36; color: #e8e8ec; padding: 12px 20px; border-radius: 8px;
+  font-size: 14px; border-left: 3px solid #ff5c5c; box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  z-index: 100; max-width: 90%;
+}
