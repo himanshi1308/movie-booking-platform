@@ -88,17 +88,6 @@ cd backend
 node raceConditionTest.js 1     # 1 = seat ID to attack; try any seat id 1-40
 ```
 
-## Demo Video Suggestions
-1. Show the seat map, select a seat — point out the "held for 120s" countdown.
-2. Open the same show in a second browser tab (different random `userId`) —
-   try to select the same seat -> show the instant rejection.
-3. Let a hold expire on camera (or shorten `LOCK_DURATION_MS` to 10s for the
-   demo) -> show the seat becoming available again automatically.
-4. Run `raceConditionTest.js` in a terminal -> narrate the 20-concurrent-user
-   output showing exactly 1 booking succeeds.
-5. Briefly show the `UPDATE ... WHERE status = 'available'` line in
-   `server.js` and explain why it's atomic vs. read-then-write.
-
 ## Project Structure
 ```
 movie-booking-platform/
